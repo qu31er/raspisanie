@@ -30,23 +30,15 @@ android {
 }
 
 dependencies {
-    implementation(platform("androidx.compose:compose-bom:2024.09.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-tooling-preview")
+    // Убрали BOM, указываем версии явно
+    implementation("androidx.compose.ui:ui:1.7.0")
+    implementation("androidx.compose.material3:material3:1.3.0")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.7.0")
     implementation("androidx.activity:activity-compose:1.9.2")
     
     // Liquid Glass library
     implementation("com.github.muhammadalkady:liquid-glass-compose:0.1.0")
 
-    // Явно указываем рабочую версию для androidx-группы
-    implementation("androidx.compose.material:material-icons-core:1.6.11")
-}
-
-// Принудительно заставляем Gradle использовать версию 1.6.11,
-// даже если BOM пытается навязать несуществующую 1.7.0
-configurations.all {
-    resolutionStrategy {
-        force("androidx.compose.material:material-icons-core:1.6.11")
-    }
+    // Рабочая версия иконок (не из BOM)
+    implementation("org.jetbrains.compose.material:material-icons-core:1.6.11")
 }
