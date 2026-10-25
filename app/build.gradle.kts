@@ -39,10 +39,6 @@ dependencies {
     // Liquid Glass library
     implementation("com.github.muhammadalkady:liquid-glass-compose:0.1.0")
 
-    // Принудительно указываем версию material-icons-core, которая существует
-    implementation("androidx.compose.material:material-icons-core") {
-        version {
-            strictly("1.6.11")
-        }
-    }
+    // Заменяем проблемную библиотеку на рабочую версию от JetBrains
+    implementation("org.jetbrains.compose.material:material-icons-core:1.6.11")
 }
