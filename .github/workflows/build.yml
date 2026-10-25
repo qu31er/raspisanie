@@ -14,6 +14,9 @@ jobs:
       
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+          accept-android-sdk-licenses: true
       
       - name: Generate Gradle Wrapper
         run: gradle wrapper --gradle-version 8.10
