@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.compose") // Добавили эту строку
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -19,7 +19,6 @@ android {
     buildFeatures {
         compose = true
     }
-    // Блок composeOptions удален полностью, он больше не нужен
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -39,4 +38,9 @@ dependencies {
     
     // Liquid Glass library
     implementation("com.github.muhammadalkady:liquid-glass-compose:0.1.0")
+}
+
+// Исключаем проблемную библиотеку, которая ломает сборку
+configurations.all {
+    exclude(group = "androidx.compose.material", module = "material-icons-core")
 }
