@@ -39,6 +39,14 @@ dependencies {
     // Liquid Glass library
     implementation("com.github.muhammadalkady:liquid-glass-compose:0.1.0")
 
-    // Заменяем проблемную библиотеку на рабочую версию от JetBrains
-    implementation("org.jetbrains.compose.material:material-icons-core:1.6.11")
+    // Явно указываем рабочую версию для androidx-группы
+    implementation("androidx.compose.material:material-icons-core:1.6.11")
+}
+
+// Принудительно заставляем Gradle использовать версию 1.6.11,
+// даже если BOM пытается навязать несуществующую 1.7.0
+configurations.all {
+    resolutionStrategy {
+        force("androidx.compose.material:material-icons-core:1.6.11")
+    }
 }
