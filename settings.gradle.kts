@@ -1,6 +1,6 @@
 pluginManagement {
     repositories {
-        google()          // <-- ДОБАВИТЬ ЭТУ СТРОКУ
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
