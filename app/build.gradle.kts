@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose") // Добавили эту строку
 }
 
 android {
@@ -18,9 +19,8 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
+    // Блок composeOptions удален полностью, он больше не нужен
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -37,6 +37,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.activity:activity-compose:1.9.2")
     
-    // Liquid Glass library (экспериментальная)
+    // Liquid Glass library
     implementation("com.github.muhammadalkady:liquid-glass-compose:0.1.0")
 }
