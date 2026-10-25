@@ -38,9 +38,11 @@ dependencies {
     
     // Liquid Glass library
     implementation("com.github.muhammadalkady:liquid-glass-compose:0.1.0")
-}
 
-// Исключаем проблемную библиотеку, которая ломает сборку
-configurations.all {
-    exclude(group = "androidx.compose.material", module = "material-icons-core")
+    // Принудительно указываем версию material-icons-core, которая существует
+    implementation("androidx.compose.material:material-icons-core") {
+        version {
+            strictly("1.6.11")
+        }
+    }
 }
